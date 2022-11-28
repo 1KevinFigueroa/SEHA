@@ -71,6 +71,8 @@ xssFields = 'X-XSS-Protection'
 xssFields2 = 'x-xss-protection'
 ectFields = 'Expect-CT'
 ectFields2 = 'expect-ct'
+
+
 checkFields = dict(hInfo)
 
 if (hstsFields not in checkFields.keys() and hstsFields2 not in checkFields.keys()):
