@@ -6,6 +6,6 @@ Security  Evaluation  Header  Analyzer</center>
 be used in a offensive security approach by evaluating request header, fingerprinting, or OSINT on the technology
 in use.</p>
 
-Features:
-<img scr="/images/greenCheck.png" alt="green check" title="GREEN CHECK"> Scan, capture, and analyze HTTP response headers
-<img scr="/images/greenCheck.png" alt="green check" title="GREEN CHECK"> Evaluates for 13 different type of missing HTTP response headers. 
+<h1>Features:</h1><br>
+<img scr="/images/greenCheck.png" alt="green check" title="GREEN CHECK"> Scan, capture, and analyze HTTP response headers<br>
+<img scr="/images/greenCheck.png" alt="green check" title="GREEN CHECK"> Evaluates for 13 different type of missing HTTP response headers.<br>
