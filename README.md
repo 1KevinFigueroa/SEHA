@@ -7,7 +7,7 @@ be used in a offensive security approach by evaluating request header, fingerpri
 in use.</p>
 
 <h1>Features:</h1>
-<table>
+<table cellspacing="0" cellpadding="0" border="0">
 	<tr>
 		<td><img src="https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png" alt="green check" title="Green Check" height="15" weight="15"> Scan, capture, and analyze HTTP response headers</td>
 	</tr>
