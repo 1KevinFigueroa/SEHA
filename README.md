@@ -7,5 +7,9 @@ be used in a offensive security approach by evaluating request header, fingerpri
 in use.</p>
 
 <h1>Features:</h1><br>
-<img src="https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png" alt="green check" title="Green Check" height="15" weight="15"> Scan, capture, and analyze HTTP response headers
-![Green Check](https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png") Evaluates for 13 different type of missing HTTP response headers.<br>
+<table>
+	<tr>
+		<td><img src="https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png" alt="green check" title="Green Check" height="15" weight="15"> Scan, capture, and analyze HTTP response headers</td>
+		<td><img src="https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png" alt="green check" title="Green Check" height="15" weight="15">  Evaluates for 13 different type of missing HTTP response headers.</td>
+	</tr>
+</table>
