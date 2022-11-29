@@ -60,6 +60,10 @@ clearFields = 'Clear-Site-Data'
 clearFields2 = 'Clear-Site-Data'
 serFields = 'Server'
 serFields2 = 'server'
+xssFields = 'X-XSS-Protection'
+xssFields2 = 'x-xss-protection'
+ectFields = 'Expect-CT'
+ectFields2 = 'expect-ct'
 xpowFields = 'X-Powered-By'
 xpowFields2 = 'x-powered-by'
 
@@ -67,10 +71,7 @@ xpowFields2 = 'x-powered-by'
 #config = {'Strict-Transport-Security' : 'max-age:31536000; includeSubdomains; preload'}
 #
 
-xssFields = 'X-XSS-Protection'
-xssFields2 = 'x-xss-protection'
-ectFields = 'Expect-CT'
-ectFields2 = 'expect-ct'
+
 
 
 checkFields = dict(hInfo)
@@ -144,18 +145,16 @@ if (xssFields in checkFields.keys() or xssFields2 in checkFields.keys()):
 if (ectFields in checkFields.keys() or ectFields2 in checkFields.keys()):
     print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + ectFields + " FOUND (ECT):" + Fore.GREEN + " SET " + Style.BRIGHT + Back.WHITE + Fore.RED + "DEPREACTED" +Style.RESET_ALL)
 
-
-if (serFields in checkFields.keys() or serFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-] " + Style.RESET_ALL + Fore.YELLOW + serFields + " Header: " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
-    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "]" +Style.RESET_ALL + Fore.CYAN + " DATA LEAK! " + Style.RESET_ALL)
+if (serFields not in checkFields.keys() or serFields2 not in checkFields.keys()):
+    print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + serFields + " Header (SVR): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + "Data Leakage" + " " + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
 else:
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Server Header: NOT FOUND" + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + serFields + " Header (SVR): " + Style.BRIGHT + Fore.GREEN + "NOT SET" + Style.RESET_ALL)
 
 if (xpowFields in checkFields.keys() or xpowFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-] " + Style.RESET_ALL + Fore.YELLOW + xpowFields + " Header: " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
-    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "]" +Style.RESET_ALL + Fore.CYAN + " DATA LEAK! " + Style.RESET_ALL)
-else:
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Server Header: NOT FOUND" + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + xpowFields + " Header (XPOW): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + xpowFields + " " + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
+
 
 print(Fore.GREEN + "\n PROCESSING COMPLETED")
 print('|~~>>>**********<<<--|\n')
