@@ -8,4 +8,4 @@ in use.</p>
 
 <h1>Features:</h1><br>
 <img scr="https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png" alt="Alt text" title="Optional title"> Scan, capture, and analyze HTTP response headers<br>
-<img scr="https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png" alt="Alt text" title="Optional title"> Evaluates for 13 different type of missing HTTP response headers.<br>
+<img scr="https://github.com/1KevinFigueroa/SEHA/blob/main/images/GreenCheck.png" alt="Alt text" title="Optional title"> Evaluates for 13 different type of missing HTTP response headers.<br>
