@@ -7,5 +7,5 @@ be used in a offensive security approach by evaluating request header, fingerpri
 in use.</p>
 
 <h1>Features:</h1><br>
-![Screenshot](/images/check.png) Scan, capture, and analyze HTTP response headers<br>
-![Screenshot](/images/check.png) Evaluates for 13 different type of missing HTTP response headers.<br>
+![Alt-text](https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png) Scan, capture, and analyze HTTP response headers<br>
+![Alt-text](https://github.com/1KevinFigueroa/SEHA/blob/main/images/greenCheck.png) Evaluates for 13 different type of missing HTTP response headers.<br>
