@@ -2,7 +2,7 @@
 <center><img src="/images/SEHA.png" alt="Alt text" title="Optional title">
 Security  Evaluation  Header  Analyzer</center>
 
-<p> Security Evaluation Header Analyzer (SEHA) can be use for web header security defense or audits. It could also
+<p> Security Evaluation Header Analyzer (SEHA) can be use for identifing security web header and/or audits of web headers. It could also
 be as an offensive security approach by evaluating request header, fingerprinting, or OSINT on the technology
 in use.</p>
 

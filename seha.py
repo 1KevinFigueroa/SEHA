@@ -71,9 +71,6 @@ xpowFields2 = 'x-powered-by'
 #config = {'Strict-Transport-Security' : 'max-age:31536000; includeSubdomains; preload'}
 #
 
-
-
-
 checkFields = dict(hInfo)
 
 if (hstsFields not in checkFields.keys() and hstsFields2 not in checkFields.keys()):
@@ -155,7 +152,5 @@ if (xpowFields in checkFields.keys() or xpowFields2 in checkFields.keys()):
     print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + xpowFields + " Header (XPOW): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
     print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + xpowFields + " " + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
 
-
 print(Fore.GREEN + "\n PROCESSING COMPLETED")
 print('|~~>>>**********<<<--|\n')
-
