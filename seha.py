@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
 import requests as req
-import colorama as cr
-from colorama import Fore, Back, Style
-
-cr.init()
 
 banner = '''
 
@@ -20,7 +16,7 @@ banner = '''
 '''
 
 
-print(Fore.YELLOW + banner + Style.RESET_ALL)
+print(banner)
 print("[+] TARGET to SCAN:")
 tURL = str(input())
 resp = req.get(tURL)
@@ -29,16 +25,16 @@ resp = req.get(tURL)
 pStatus = str(resp.status_code)
 hInfo = resp.headers
 eType = str(resp.encoding)
-print(Fore.GREEN + "\nTARGET REQUEST HEADERS from:" + Fore.GREEN + "|-->>> " + Fore.YELLOW + tURL + Style.RESET_ALL)
-print(Fore.GREEN + "Page Status: " + Style.RESET_ALL + pStatus)
-print(Fore.GREEN + "Encoding Type: " + Style.RESET_ALL + eType)
+print("\nTARGET REQUEST HEADERS from:" + "|-->>> " + tURL)
+print("Page Status: " + pStatus)
+print("Encoding Type: " + eType)
 
 
 for key, value in hInfo.items():
-    print(Fore.GREEN + key + Style.BRIGHT + Fore.YELLOW + " => " + Style.RESET_ALL + value)
+    print(key + " => " + value)
 
-print("\n Security Evaluation Header Analyzer of " + Fore.GREEN + "|->> " + Style.BRIGHT + Fore.YELLOW + tURL + Style.RESET_ALL)
-print(Style.BRIGHT + Fore.YELLOW + "-----------------------------------------------------------------------" + Style.RESET_ALL)
+print("\n Security Evaluation Header Analyzer of " + "|->> " + tURL)
+print("-----------------------------------------------------------------------")
 
 hstsFields = 'Strict-Transport-Security' 
 hstsFields2 = 'strict-transport-security'
@@ -74,83 +70,73 @@ xpowFields2 = 'x-powered-by'
 checkFields = dict(hInfo)
 
 if (hstsFields not in checkFields.keys() and hstsFields2 not in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + hstsFields + " Header (HSTS): " + Style.BRIGHT + Fore.RED + "NOT SET" + Style.RESET_ALL)
-    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + hstsFields + " " + Style.RESET_ALL + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
+    print("[-]" + " Security " + hstsFields + " Header (HSTS): " + "NOT SET")
+    print(" |=> " + "[" + "INFO" + "] " + hstsFields + " " + "MISCONFIGURATION FOUND")
 else:
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + hstsFields + " Header (HSTS): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+    print("[+] " + "Security " + hstsFields + " Header (HSTS): " + "SET")
 
 
 
 if (cspFields not in checkFields.keys() and cspFields2 not in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + cspFields + " Header (CSP): " + Style.BRIGHT + Fore.RED + "NOT SET" + Style.RESET_ALL)
-    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + cspFields + " " + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
+    print("[-]" + " Security " + cspFields + " Header (CSP): NOT SET")
+    print(" |=> " + "[" + "INFO" + "] " + cspFields + " " + "MISCONFIGURATION FOUND")
 else:
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + cspFields + " Header (CSP): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
-
-
+    print("[+] " + "Security " + cspFields + " Header (CSP): " + "SET")
 
 if (acaoFields not in checkFields.keys() and acaoFields2 not in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + acaoFields + " Header (ACAO): " + Style.BRIGHT + Fore.RED + "NOT SET" + Style.RESET_ALL)
+    print("[-] " + "Security " + acaoFields + " Header (ACAO): " + "NOT SET")
 else:
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + acaoFields + " Header (ACAO): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
-
-
+    print("[+] " + "Security " + acaoFields + " Header (ACAO): " + "SET")
 
 if (xfoFields in checkFields.keys() or xfoFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + xfoFields + " Header (XFO): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+    print("[+] " + "Security " + xfoFields + " Header (XFO): " + "SET")
 else:
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + xfoFields + " Header (XFO): " + Fore.RED + "NOT SET " + Style.RESET_ALL)
-
-
+    print("[-] " + "Security " + xfoFields + " Header (XFO): " + "NOT SET ")
 
 if (xctoFields in checkFields.keys() or xctoFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + xctoFields + " Header (XCTO): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+    print("[+] " + "Security " + xctoFields + " Header (XCTO): " + "SET")
 else:
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + xctoFields + " Header (XCTO): " + Fore.RED + "NOT SET" + Style.RESET_ALL)
-
-
+    print("[-] " + "Security " + xctoFields + " Header (XCTO): " + "NOT SET")
 
 if (corsFields in checkFields.keys() or corsFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + corsFields + " Header (CORS): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+    print("[+] " + "Security " + corsFields + " Header (CORS): " + "SET")
 else:
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + corsFields + " Header (CORS): " + Fore.RED + "NOT SET" + Style.RESET_ALL)
+    print("[-] " + "Security " + corsFields + " Header (CORS): " + "NOT SET")
 
 
 
 if (referrerFields in checkFields.keys() or referrerFields2 in checkFields.keys()):
-     print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + referrerFields + " Header (RP): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+     print("[+] " + "Security " + referrerFields + " Header (RP): " + "SET")
 else:
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + referrerFields + " Header (RP): " + Fore.RED + "NOT SET" + Style.RESET_ALL)
-
-
+    print("[-] " + "Security " + referrerFields + " Header (RP): " + "NOT SET")
 
 if (permissionFields in checkFields.keys() or permissionFields2 in checkFields.keys()):
-     print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + permissionFields + " Header (PP): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+     print( "[+] " + "Security " + permissionFields + " Header (PP): " + "SET")
 else:
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + permissionFields + " Header (PP): " + Fore.RED + "NOT SET" + Style.RESET_ALL)
+    print("[-] " + "Security " + permissionFields + " Header (PP): " + "NOT SET")
 
 
 if (clearFields in checkFields.keys() or clearFields2 in checkFields.keys()):
-     print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + clearFields + " Header (CSD): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
+     print( "[+] " + "Security " + clearFields + " Header (CSD): " + "SET")
 else:
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + "Security " + clearFields + " Header (CSD): " + Fore.RED + "NOT SET" + Style.RESET_ALL)
+    print("[-] " + "Security " + clearFields + " Header (CSD): " + "NOT SET")
 
 
 if (xssFields in checkFields.keys() or xssFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + xssFields + " FOUND (XSS):" + Fore.GREEN + " SET " + Style.BRIGHT + Back.WHITE + Fore.RED + "DEPREACTED" +Style.RESET_ALL)
+    print("[-] " + xssFields + " FOUND (XSS):" + " SET " + "DEPREACTED")
 
 if (ectFields in checkFields.keys() or ectFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-] " + Fore.YELLOW + ectFields + " FOUND (ECT):" + Fore.GREEN + " SET " + Style.BRIGHT + Back.WHITE + Fore.RED + "DEPREACTED" +Style.RESET_ALL)
+    print( "[-] " + ectFields + " FOUND (ECT):" + " SET " + "DEPREACTED")
 
 if (serFields not in checkFields.keys() or serFields2 not in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + serFields + " Header (SVR): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
-    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + "Data Leakage" + " " + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
+    print("[-]" + " Security " + serFields + " Header (SVR): " + "SET")
+    print(" |=> " + "[" + "OSINT INFO" + "] " + "Data Leakage" + " " + "MISCONFIGURATION FOUND")
 else:
-    print(Style.BRIGHT + Fore.GREEN + "[+] " + Style.RESET_ALL + Fore.YELLOW + "Security " + serFields + " Header (SVR): " + Style.BRIGHT + Fore.GREEN + "NOT SET" + Style.RESET_ALL)
+    print("[+] " + "Security " + serFields + " Header (SVR): " + "NOT SET")
 
 if (xpowFields in checkFields.keys() or xpowFields2 in checkFields.keys()):
-    print(Style.BRIGHT + Fore.RED + "[-]" + Fore.YELLOW + " Security " + xpowFields + " Header (XPOW): " + Style.BRIGHT + Fore.GREEN + "SET" + Style.RESET_ALL)
-    print(Style.BRIGHT + Fore.CYAN + " |=> " + Fore.YELLOW + "[" + Fore.CYAN + "OSINT INFO" + Fore.YELLOW + "] " + Style.RESET_ALL + Fore.CYAN + xpowFields + " " + Back.YELLOW + Fore.RED + "MISCONFIGURATION FOUND" + Style.RESET_ALL)
+    print("[-]" + " Security " + xpowFields + " Header (XPOW): " + "SET")
+    print(" |=> " + "[" + "OSINT INFO" + "] " + " " + "MISCONFIGURATION FOUND")
 
-print(Fore.GREEN + "\n PROCESSING COMPLETED")
+print("\n PROCESSING COMPLETED")
 print('|~~>>>**********<<<--|\n')
